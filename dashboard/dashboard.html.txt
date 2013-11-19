@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><title>JobManager: Dashboard</title>
+    <link href="/favicon.ico" type="image/x-icon" rel="icon" ><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" >
+    <link rel="stylesheet" href="/css/bootstrap.css" >
+    <link rel="stylesheet" href="/css/font-awesome.css" >
+    <link rel="stylesheet" href="/css/jquery-ui.css" >
+    <link rel="stylesheet" href="/css/fullcalendar.css" >
+    <link rel="stylesheet" href="/css/prettyPhoto.css" >
+    <link rel="stylesheet" href="/css/rateit.css" >
+    <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css" >
+    <link rel="stylesheet" href="/css/jquery.cleditor.css" >
+    <link rel="stylesheet" href="/css/uniform.default.css" >
+    <link rel="stylesheet" href="/css/bootstrap-toggle-buttons.css" >
+    <link rel="stylesheet" href="/css/style.css" >
+    <link rel="stylesheet" href="/css/widgets.css" >
+    
+    
+  </head>
+  <body>
+
+    <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+
+      <div class="conjtainer">
+        <div class="navbar-header">
+          <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span>Menu</span>
+          </button>
+          <a href="/" class="navbar-brand hidden-lg hidden-md">JobManager</a>
+        </div>
+
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">         
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown pull-right">            
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="icon-user"></i> Administrator <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- <li><a href="#"><i class="icon-user"></i> Profile</a></li> -->
+                <!-- <li><a href="#"><i class="icon-cogs"></i> Settings</a></li> -->
+                <li><a href="/users/logout"><i class="icon-off"></i> Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+
+    <header>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4">
+            <div class="logo">
+              <h1><i class="icon-check-sign"></i> <a href="/">JobManager</a></h1>
+            </div>
+          </div>
+
+          <div class="col-md-offset-4 col-md-4">
+            <div class="header-data pull-right">
+
+              <div class="hdata">
+                <div class="mcol-left">
+                  <i class="icon-tasks bred"></i> 
+                </div>
+                <div class="mcol-right">
+                  <p><a href="#">2</a> <em>jobs</em></p>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="hdata">
+                <div class="mcol-left">
+                  <i class="icon-user bblue"></i> 
+                </div>
+                <div class="mcol-right">
+                  <p><a href="#">2</a> <em>clients</em></p>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <div class="sidebar">
+        <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
+        <nav class="menu" id="main_menu-menu"><ul><li class="active"><a href="/"><i class="icon-home"></i> Dashboard</a></li><li><a href="/jobs"><i class="icon-tasks"></i> Jobs</a></li><li><a href="/clients"><i class="icon-user"></i> Clients</a></li><li><a href="/calendar"><i class="icon-calendar"></i> Calendar</a></li><li><a href="/reports"><i class="icon-bar-chart"></i> Reports</a></li></ul></nav>      </div>
+
+      <div class="mainbar">
+
+        <div class="page-head">
+          <h2 class="pull-left"><i class="icon-home"></i> Dashboard</h2>
+
+          <div class="bread-crumb pull-right">
+            <a href="/">Home</a>          </div>
+
+          <div class="clearfix"></div>
+
+        </div>
+
+        <div class="matter">
+          <div class="container">
+                        
+<div class="row">
+
+  <div class="col-lg-3 col-md-6">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left"><i class="icon-tasks"></i> Overdue</div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="widget-content">
+        <div class="padd">
+          <div class="pie-chart" id="chart_overdue"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left"><i class="icon-tasks"></i> In Progress</div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="widget-content">
+        <div class="padd">
+          <div class="pie-chart" id="chart_in_progress"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left"><i class="icon-tasks"></i> Completed</div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="widget-content">
+        <div class="padd">
+          <div class="pie-chart" id="chart_completed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3 col-md-6">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left"><i class="icon-tasks"></i> Due Today</div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="widget-content">
+        <div class="padd">
+          <div class="pie-chart" id="chart_due_today"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-lg-6 col-md-12">
+
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left"><i class="icon-tasks"></i> Top Ten Overdue</div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="widget-content">
+        <table class="table table-striped table-bordered table-hover" id="top-ten-overdue">
+          <thead>
+            <tr>
+              <th>Job #</th>
+              <th>Client</th>
+              <th>Due</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="3">No information</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-12">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left"><i class="icon-tasks"></i> Due This Week</div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="widget-content">
+        <table class="table table-striped table-bordered table-hover" id="due-this-week">
+          <thead>
+            <tr>
+              <th>Job #</th>
+              <th>Client</th>
+              <th>Due</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="3">No information</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-lg-6 col-md-12">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left"><i class="icon-tasks"></i> Recently Completed</div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="widget-content">
+        <table class="table table-striped table-bordered table-hover" id="recently-completed">
+          <thead>
+            <tr>
+              <th>Job #</th>
+              <th>Client</th>
+              <th>Due</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="3">No information</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-12">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left"><i class="icon-tasks"></i> Due Today</div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="widget-content">
+        <table class="table table-striped table-bordered table-hover" id="due-today">
+          <thead>
+            <tr>
+              <th>Job #</th>
+              <th>Client</th>
+              <th>Completed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="3">No information</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="clearfix"></div>
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="copy"><i class="icon-check-sign"></i> <span style="font-family:'Alfa Slab One'">JobManager</span> 1.0.0 | Powered by CakePHP.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span> 
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="/js/fullcalendar.min.js"></script>
+    <script src="/js/jquery.rateit.min.js"></script>
+    <script src="/js/jquery.prettyPhoto.js"></script>
+    <script src="/js/excanvas.min.js"></script>
+    <script src="/js/jquery.flot.js"></script>
+    <script src="/js/jquery.flot.resize.js"></script>
+    <script src="/js/jquery.flot.pie.js"></script>
+    <script src="/js/jquery.flot.stack.js"></script>
+    <script src="/js/jquery.noty.js"></script>
+    <script src="/js/themes/default.js"></script>
+    <script src="/js/layouts/bottom.js"></script>
+    <script src="/js/layouts/topRight.js"></script>
+    <script src="/js/layouts/top.js"></script>
+    <script src="/js/sparklines.js"></script>
+    <script src="/js/jquery.cleditor.min.js"></script>
+    <script src="/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/js/jquery.uniform.min.js"></script>
+    <script src="/js/jquery.toggle.buttons.js"></script>
+    <script src="/js/filter.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="/js/charts.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load('visualization', '1.0', {'packages':['corechart']});
+
+var stats = {"overdue":2,"completed":0,"not_completed":2,"on_time":0,"due_this_week":0,"completed_this_week":0,"not_due_this_week":1,"due_today":0,"completed_today":0,"jobs":{"overdue":[{"Job":{"id":"15","client_id":"25","jobtype_id":"4","subcontractor_id":"0","subject":"test","description":"test","note":"","estimate":null,"completed":false,"held":false,"created_date":null,"updated_date":"0000-00-00 00:00:00","start_date":"2013-11-16 00:00:00","due_date":null,"completed_date":null},"Client":{"id":"25","company":"Xorcode, LLC","contact":"Torgny Bjers","address1":"4214 Cantey Pl","address2":"","address3":"","town":"Charlotte","county":"North Carolina","postalcode":"28211","region":"","phone":"9802004574","mobile":"9802004574","email":"torgny.bjers@gmail.com","misc1":"","misc2":"","leadtype_id":"2","created_date":null,"updated_date":"0000-00-00 00:00:00"},"Jobtype":{"id":"4","name":"Grounds","title":"GM"},"Subcontractor":{"id":null,"company":null,"contact":null,"phone":null,"mobile":null,"address":null,"misc1":null,"misc2":null,"created_date":null,"updated_date":null}},{"Job":{"id":"14","client_id":"25","jobtype_id":"3","subcontractor_id":"0","subject":"Lorem Ipsum Dolor","description":"","note":"","estimate":"28","completed":false,"held":false,"created_date":null,"updated_date":"0000-00-00 00:00:00","start_date":"2013-11-13 00:00:00","due_date":"2013-11-15 00:00:00","completed_date":null},"Client":{"id":"25","company":"Xorcode, LLC","contact":"Torgny Bjers","address1":"4214 Cantey Pl","address2":"","address3":"","town":"Charlotte","county":"North Carolina","postalcode":"28211","region":"","phone":"9802004574","mobile":"9802004574","email":"torgny.bjers@gmail.com","misc1":"","misc2":"","leadtype_id":"2","created_date":null,"updated_date":"0000-00-00 00:00:00"},"Jobtype":{"id":"3","name":"rubbish","title":"Remove Rubbish"},"Subcontractor":{"id":null,"company":null,"contact":null,"phone":null,"mobile":null,"address":null,"misc1":null,"misc2":null,"created_date":null,"updated_date":null}}],"due_this_week":[],"recently_completed":[],"due_today":[]}};
+
+$('#top-ten-overdue').find('tbody').empty();
+stats.jobs.overdue.forEach(function (job) {
+  var $row = $('<tr>');
+  $row.append('<td>' + job.Job.id + '</td>');
+  $row.append('<td>' + job.Client.company + '</td>');
+  $row.append('<td>' + job.Job.due_date + '</td>');
+  $('#top-ten-overdue').find('tbody').append($row);
+});
+
+$('#due-this-week').find('tbody').empty();
+stats.jobs.due_this_week.forEach(function (job) {
+  var $row = $('<tr>');
+  $row.append('<td>' + job.Job.id + '</td>');
+  $row.append('<td>' + job.Client.company + '</td>');
+  $row.append('<td>' + job.Job.due_date + '</td>');
+  $('#due-this-week').find('tbody').append($row);
+});
+
+$('#recently-completed').find('tbody').empty();
+stats.jobs.recently_completed.forEach(function (job) {
+  var $row = $('<tr>');
+  $row.append('<td>' + job.Job.id + '</td>');
+  $row.append('<td>' + job.Client.company + '</td>');
+  $row.append('<td>' + job.Job.due_date + '</td>');
+  $('#recently-completed').find('tbody').append($row);
+});
+
+$('#due-today').find('tbody').empty();
+stats.jobs.due_today.forEach(function (job) {
+  var $row = $('<tr>');
+  $row.append('<td>' + job.Job.id + '</td>');
+  $row.append('<td>' + job.Client.company + '</td>');
+  $row.append('<td>' + (job.Job.completed ? '<i class="icon-check"></i>' : '<i class="icon-check-empty"></i>') + '</td>');
+  $('#due-today').find('tbody').append($row);
+});
+
+var drawCharts = function () {
+  var options = {
+    backgroundColor: 'transparent',
+    pieHole: 0.4,
+    chartArea: {
+      top: 20,
+      width: '70%',
+      height: '70%'
+    },
+    legend: {
+      position: 'bottom'
+    },
+    pieSliceText: 'value'
+  };
+
+  var data1 = new google.visualization.DataTable();
+  data1.addColumn('string', 'State');
+  data1.addColumn('number', 'Jobs');
+  data1.addRows([
+    ['On Time', stats.on_time],
+    ['Overdue', stats.overdue]
+  ]);
+
+  var chart_overdue = new google.visualization.PieChart(document.getElementById('chart_overdue'));
+  chart_overdue.draw(data1, options);
+
+  var data2 = new google.visualization.DataTable();
+  data2.addColumn('string', 'State');
+  data2.addColumn('number', 'Jobs');
+  data2.addRows([
+    ['In Progress', stats.not_due_this_week],
+    ['Due this Week', stats.due_this_week]
+  ]);
+
+  var chart_in_progress = new google.visualization.PieChart(document.getElementById('chart_in_progress'));
+  chart_in_progress.draw(data2, options);
+
+  var data3 = new google.visualization.DataTable();
+  data3.addColumn('string', 'State');
+  data3.addColumn('number', 'Jobs');
+  data3.addRows([
+    ['Completed', stats.completed],
+    ['Not Completed', stats.not_completed]
+  ]);
+
+  var chart_completed = new google.visualization.PieChart(document.getElementById('chart_completed'));
+  chart_completed.draw(data3, options);
+
+  var data4 = new google.visualization.DataTable();
+  data4.addColumn('string', 'State');
+  data4.addColumn('number', 'Jobs');
+  data4.addRows([
+    ['Completed', stats.completed_today],
+    ['Due Today', stats.due_today]
+  ]);
+
+  var chart_due_today = new google.visualization.PieChart(document.getElementById('chart_due_today'));
+  chart_due_today.draw(data4, options);
+};
+
+google.setOnLoadCallback(drawCharts);
+</script>
+
+
+  <script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:")+"//"+"js-agent.newrelic.com/nr-100.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-2.newrelic.com","086d29fe14","2154339","NgZbZERZXxVUVUBbVw9MeFNCUV4IGnxbUEsiDFdERFddClBEG0FMABdK",0,92,new Date().getTime(),"","","","",""]);</script></body>
+</html>
